@@ -1,5 +1,6 @@
 package com.nttdata.controllers;
 
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,24 +15,26 @@ import com.nttdata.services.UsuarioService;
 @Controller
 @RequestMapping("/usuario")
 public class UsuarioController {
-	@Autowired
-	UsuarioService UsuarioService;
 	
+	@Autowired
+	UsuarioService usuarioService;
 	
 	@RequestMapping("")
-	public String usuario(@ModelAttribute("usuario")Usuario usuarios, Model model) {
-		model.addAttribute("ListaUsuarios", UsuarioService.obtenerListaUsuarios());
+	public String usuario(@ModelAttribute("usuario") Usuario usuario,
+			Model model) {
+		
+		model.addAttribute("listaUsuarios", usuarioService.obtenerListaUsuarios());
 		return "usuario/usuario.jsp";
 	}
 	
 	@RequestMapping("/login")
-	public String login (@Valid @ModelAttribute("usuario") Usuario usuario)
-	{
-		System.out.println(usuario.getNombre() + " " + usuario.getApellido() + " " + usuario.getRut() + " " + usuario.getCelular() + " " + usuario.getEdad());
-		
-		UsuarioService.insertarUsuario(usuario);
+	public String login(@Valid @ModelAttribute("usuario") Usuario usuario) {
+		System.out.println(usuario.getNombre()+ " " + usuario.getApellido() + " " + usuario.getRut() + " " + usuario.getEmail());
+	
+		usuarioService.insertarUsuario(usuario);
 		
 		return "redirect:/usuario";
-		
 	}
+	
+
 }

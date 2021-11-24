@@ -12,25 +12,18 @@ import com.nttdata.repositories.UsuarioRepository;
 
 @Service
 public class UsuarioService {
-
+	
 	@Autowired
 	UsuarioRepository usuarioRepository;
-
-	
-	
-	public List<Usuario> obtenerListaUsuarios() {
-		return (List<Usuario>) usuarioRepository.findAll();
-	}
-
-
 
 	public void insertarUsuario(@Valid Usuario usuario) {
 		usuarioRepository.save(usuario);
 		
 	}
 
-
-
 	
-
+public List<Usuario> obtenerListaUsuarios() {
+		
+		return  (List<Usuario>) usuarioRepository.findAll();
+	}
 }

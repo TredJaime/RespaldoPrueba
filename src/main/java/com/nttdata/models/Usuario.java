@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity//representacion de la entidad modelo
-@Table(name="usuarios")
+@Table(name="usuarios")//nombre de la tabla en la bbdd
 
 public class Usuario {
 	@Id //clave primaria o PK
@@ -16,8 +16,7 @@ public class Usuario {
 	private String nombre;
 	private String apellido;
 	private String rut;
-	private String celular;
-	private Integer edad;
+	private String email;
 	
 	
 	public Usuario() {
@@ -25,73 +24,44 @@ public class Usuario {
 	}
 	
 	
-	public Usuario(String nombre, String apellido, String rut, String celular, Integer edad) {
+	public Usuario(String nombre, String apellido, String rut, String email) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.rut = rut;
-		this.celular = celular;
-		this.edad = edad;
+		this.email = email;
 	}
-
-
+	
 	@Override
 	public String toString() {
-		return "Usuario [nombre=" + nombre + ", apellido=" + apellido + ", rut=" + rut + ", celular=" + celular
-				+ ", edad=" + edad + "]";
+		return "usuario [nombre=" + nombre + ", apellido=" + apellido + ", rut=" + rut + ", email=" + email + "]";
 	}
-
-
+	
+	
 	public String getNombre() {
 		return nombre;
 	}
-
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
-
 	public String getApellido() {
 		return apellido;
 	}
-
-
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-
-
 	public String getRut() {
 		return rut;
 	}
-
-
 	public void setRut(String rut) {
 		this.rut = rut;
 	}
-
-
-	public String getCelular() {
-		return celular;
+	public String getEmail() {
+		return email;
 	}
-
-
-	public void setCelular(String celular) {
-		this.celular = celular;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-
-
-	public Integer getEdad() {
-		return edad;
-	}
-
-
-	public void setEdad(Integer edad) {
-		this.edad = edad;
-	}
-	
-	
 	
 	
 	
