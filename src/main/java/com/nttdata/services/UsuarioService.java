@@ -1,0 +1,36 @@
+package com.nttdata.services;
+
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nttdata.models.Usuario;
+import com.nttdata.repositories.UsuarioRepository;
+
+@Service
+public class UsuarioService {
+
+	@Autowired
+	UsuarioRepository usuarioRepository;
+
+	
+	
+	public List<Usuario> obtenerListaUsuarios() {
+		return (List<Usuario>) usuarioRepository.findAll();
+	}
+
+
+
+	public void insertarUsuario(@Valid Usuario usuario) {
+		usuarioRepository.save(usuario);
+		
+	}
+
+
+
+	
+
+}
