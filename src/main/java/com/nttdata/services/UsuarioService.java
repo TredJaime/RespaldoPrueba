@@ -22,7 +22,7 @@ public class UsuarioService {
 	}
 
 	
-public List<Usuario> obtenerListaUsuarios() {
+	public List<Usuario> obtenerListaUsuarios() {
 		
 		return  (List<Usuario>) usuarioRepository.findAll();
 	}

@@ -6,15 +6,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 @Entity//representacion de la entidad modelo
 @Table(name="productos")//nombre de la tabla en la bbdd
-
 public class Producto {
 	@Id //clave primaria o PK
 	@GeneratedValue(strategy= GenerationType.IDENTITY)//auto incrementable
 	private Long id;
 	private String nombre;
-	private String valor;
+	private Integer valor;
 	private String descripcion;
 	
 	
@@ -23,13 +23,15 @@ public class Producto {
 	}
 
 
-	public Producto(String nombre, String valor, String descripcion) {
+	public Producto(String nombre, Integer valor, String descripcion) {
 		super();
 		this.nombre = nombre;
 		this.valor = valor;
 		this.descripcion = descripcion;
 	}
 
+	
+	
 
 	@Override
 	public String toString() {
@@ -47,12 +49,12 @@ public class Producto {
 	}
 
 
-	public String getValor() {
+	public Integer getValor() {
 		return valor;
 	}
 
 
-	public void setValor(String valor) {
+	public void setValor(Integer valor) {
 		this.valor = valor;
 	}
 
@@ -65,7 +67,7 @@ public class Producto {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-
+	
 	
 	
 }
