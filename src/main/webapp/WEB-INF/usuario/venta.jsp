@@ -16,6 +16,26 @@
 </head>
 
 <body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Menu</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/producto">Producto <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Venta</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/usuario">Usuario</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 	<div class="container-fluid">
 		<form:form method="post" action="/venta/loginV" modelAttribute="venta">
 			<form:label path="valorTotal">Valor Total:</form:label>
@@ -42,7 +62,7 @@
 		  <tbody>
 		  	<c:forEach items="${listaVenta}" var="venta">
 			    <tr>
-			      <th scope="row"></th>
+			      <th scope="row">${venta.getId()}</th>
 			      <td>${venta.getValorTotal()}</td>
 			      <td>${venta.getFecha()}</td>
 			      <td>
