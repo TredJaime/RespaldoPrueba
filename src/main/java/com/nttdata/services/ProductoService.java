@@ -27,4 +27,15 @@ public List<Producto> obtenerListaProducto() {
 		
 		return  (List<Producto>) productoRepository.findAll();
 	}
+
+
+public Producto BuscarProducto(Long id) {
+	return productoRepository.findById(id).get();
+}
+
+
+public void eliminarProductoObjeto(Producto producto) {
+	productoRepository.delete(producto);
+	
+}
 }

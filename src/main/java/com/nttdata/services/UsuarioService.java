@@ -26,4 +26,20 @@ public class UsuarioService {
 		
 		return  (List<Usuario>) usuarioRepository.findAll();
 	}
+
+
+	public Usuario BuscarUsarioId(Long id) {
+		// TODO Auto-generated method stub return usuarioRepository.findById(id).get();
+		return usuarioRepository.findById(id).get();
+		
+	}
+
+
+	public void eliminarUsuarioObjeto(Usuario usuario) {
+		usuarioRepository.delete(usuario);
+		
+	}
+
+
+	
 }

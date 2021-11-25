@@ -53,6 +53,13 @@
 			      <td>${usuario.getApellido()}</td>
 			      <td>${usuario.getRut()}</td>
 			      <td>${usuario.getEmail()}</td>
+			       <td>editar</td>
+			      <td>
+				      <form action="/usuario/eliminar" method="get">
+				      	<input type="hidden" name="id" value="${usuario.getId()}">
+				      	<input type="submit" value="X">
+				      </form>
+			      </td>
 			    </tr>
 		    </c:forEach>
 		  </tbody>

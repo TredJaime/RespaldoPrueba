@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nttdata.models.Producto;
 import com.nttdata.services.ProductoService;
@@ -38,4 +39,14 @@ public class ProductoController {
 		
 		return "redirect:/producto";
 	}
+	
+	@RequestMapping("/eliminarP")
+	public String eliminarProducto(@RequestParam("id") Long id) {
+		Producto producto = productoService.BuscarProducto(id);
+		if(producto !=null) {
+			productoService.eliminarProductoObjeto(producto);
+		}
+		return "redirect:/producto";
+	}
+	
 }

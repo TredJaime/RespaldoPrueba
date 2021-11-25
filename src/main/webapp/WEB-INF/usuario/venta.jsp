@@ -10,20 +10,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Producto::</title>
+    <title>Venta::</title>
 </head>
 
 <body>
 	<div class="container-fluid">
-		<form:form method="post" action="/producto/loginP" modelAttribute="producto">
-			<form:label path="nombre">Nombre:</form:label>
-			<form:input type="text" path="nombre"/>
+		<form:form method="post" action="/venta/loginV" modelAttribute="venta">
+			<form:label path="valorTotal">Valor Total:</form:label>
+			<form:input type="number" path="valorTotal"/>
 			<br>
-			<form:label path="valor">Valor:</form:label>
-			<form:input type="number" path="valor"/>
-			<br>
-			<form:label path="descripcion">Descripcion:</form:label>
-			<form:input type="text" path="descripcion"/>
+			<form:label path="fecha">Fecha:</form:label>
+			<form:input type="text" path="fecha"/>
 			<br>
 			<input type="button" value="Limpiar">
 			<input type="submit" value="Submit">
@@ -31,27 +28,24 @@
 		<br>
 		<hr>
 		
-		
 		<table class="table">
 		  <thead>
 		    <tr>
 		      <th scope="col">#</th>
-		      <th scope="col">Nombre</th>
-		      <th scope="col">Valor</th>
-		      <th scope="col">Descripcion</th>
+		      <th scope="col">Valor Total</th>
+		      <th scope="col">Fecha</th>
 		      <th scope="col">Acciones</th>
 		    </tr>
 		  </thead>
 		  <tbody>
-		  	<c:forEach items="${listaProducto}" var="producto">
+		  	<c:forEach items="${listaVenta}" var="venta">
 			    <tr>
 			      <th scope="row"></th>
-			      <td>${producto.getNombre()}</td>
-			      <td>${producto.getValor()}</td>
-			      <td>${producto.getDescripcion()}</td>
+			      <td>${venta.getValorTotal()}</td>
+			      <td>${venta.getFecha()}</td>
 			      <td>
-				      <form action="/producto/eliminarP" method="get">
-				      	<input type="hidden" name="id" value="${producto.getId()}">
+				      <form action="/venta/eliminarV" method="get">
+				      	<input type="hidden" name="id" value="${venta.getId()}">
 				      	<input type="submit" value="X">
 				      </form>
 			      </td>
@@ -59,6 +53,7 @@
 		    </c:forEach>
 		  </tbody>
 		</table>	
+		
 		
 		
 	</div>
