@@ -38,4 +38,12 @@ public void eliminarProductoObjeto(Producto producto) {
 	productoRepository.delete(producto);
 	
 }
+
+
+public void updateProducto(@Valid Producto producto) {
+	if(productoRepository.existsById(producto.getId())) {
+		productoRepository.save(producto);
+	}
+	
+}
 }

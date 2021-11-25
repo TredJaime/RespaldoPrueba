@@ -41,4 +41,13 @@ public void eliminarVentaObjeto(Venta venta) {
 	ventaRepository.delete(venta);
 	
 }
+
+
+
+public void updateVenta(@Valid Venta venta) {
+	if(ventaRepository.existsById(venta.getId())) {
+		ventaRepository.save(venta);
+	}
+	
+}
 }

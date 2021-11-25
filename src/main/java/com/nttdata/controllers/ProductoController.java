@@ -5,8 +5,11 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nttdata.models.Producto;
@@ -49,4 +52,25 @@ public class ProductoController {
 		return "redirect:/producto";
 	}
 	
+	@RequestMapping("/{id}/editarP")
+	public String edit(@PathVariable("id") Long id, Model model) {
+		System.out.println("Editar Producto");
+		Producto producto = productoService.BuscarProducto(id);
+		if(producto !=null) {
+			model.addAttribute("producto", producto);
+			return "/usuario/editarProducto.jsp";
+		}
+		return "redirect:/producto";
+	}
+	  
+	@RequestMapping(value="/updateP/{id}", method=RequestMethod.POST)
+	public String update(@Valid @ModelAttribute("producto") Producto producto, BindingResult result) {
+		System.out.println("Udate");
+		if(result.hasErrors()) {
+			return "/usuario/editarProducto.jsp";
+		}else {
+			productoService.updateProducto(producto);
+			return "redirect:/producto";
+		}
+	}
 }

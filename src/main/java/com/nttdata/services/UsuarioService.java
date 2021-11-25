@@ -41,5 +41,15 @@ public class UsuarioService {
 	}
 
 
+	public void updateUsuario(@Valid Usuario usuario) {
+		if(usuarioRepository.existsById(usuario.getId())) {
+			usuarioRepository.save(usuario);
+		}
+		
+	}
+
+
+	
+
 	
 }

@@ -9,7 +9,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <title>Venta::</title>
 </head>
 
@@ -26,7 +28,7 @@
 			<input type="submit" value="Submit">
 		</form:form>
 		<br>
-		<hr>
+	
 		
 		<table class="table">
 		  <thead>
@@ -43,6 +45,8 @@
 			      <th scope="row"></th>
 			      <td>${venta.getValorTotal()}</td>
 			      <td>${venta.getFecha()}</td>
+			      <td>
+			         <a href="/venta/${venta.getId()}/editarV" class="btn btn-primary" role="button" data-bs-toggle="button">Editar</a>
 			      <td>
 				      <form action="/venta/eliminarV" method="get">
 				      	<input type="hidden" name="id" value="${venta.getId()}">

@@ -9,6 +9,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     
     <title>Usuario::</title>
 </head>
@@ -32,7 +35,7 @@
 			<input type="submit" value="Submit">
 		</form:form>
 		<br>
-		<hr>
+		
 		
 		<table class="table">
 		  <thead>
@@ -53,7 +56,10 @@
 			      <td>${usuario.getApellido()}</td>
 			      <td>${usuario.getRut()}</td>
 			      <td>${usuario.getEmail()}</td>
-			       <td>editar</td>
+			      <td>
+			      <a href="/usuario/${usuario.getId()}/editar" class="btn btn-primary" role="button" data-bs-toggle="button">Editar</a>
+			      
+			      </td>
 			      <td>
 				      <form action="/usuario/eliminar" method="get">
 				      	<input type="hidden" name="id" value="${usuario.getId()}">

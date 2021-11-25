@@ -1,13 +1,17 @@
 package com.nttdata.controllers;
 
 
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nttdata.models.Usuario;
@@ -45,5 +49,29 @@ public class UsuarioController {
 		
 		}
 		return "redirect:/usuario";
+	}
+	
+	
+	@RequestMapping("/{id}/editar")
+	public String edit(@PathVariable("id") Long id, Model model) {
+		System.out.println("editar");
+		Usuario usuario = usuarioService.BuscarUsarioId(id);
+		if(usuario !=null) {
+			model.addAttribute("usuario", usuario);
+			return "/usuario/editar.jsp";
 		}
+		return "redirect:/usuario";
+	}
+	
+	@RequestMapping(value="/update/{id}", method=RequestMethod.POST)
+	public String update(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult result) {
+		System.out.println("Update");
+		if(result.hasErrors()) {
+			return "/usuario/editar.jsp";
+		}else {
+			usuarioService.updateUsuario(usuario);
+			return "redirect:/usuario";
+		}
+	}
+	
 }
