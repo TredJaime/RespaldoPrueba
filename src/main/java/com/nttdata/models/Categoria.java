@@ -1,104 +1,69 @@
 package com.nttdata.models;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 @Entity//representacion de la entidad modelo
-@Table(name="productos")//nombre de la tabla en la bbdd
-public class Producto {
+@Table(name="categorias")//nombre de la tabla en la bbdd
+public class Categoria {
 	@Id //clave primaria o PK
 	@GeneratedValue(strategy= GenerationType.IDENTITY)//auto incrementable
 	private Long id;
 	private String nombre;
-	private Integer valor;
 	private String descripcion;
 	
-	
-	//relacion muchos a uno/ muchos productos pueden tener una categoria
-		@ManyToOne(fetch = FetchType.LAZY)
-		@JoinColumn(name="categoria_id")
-		private Categoria categoria;
+	//relacion uno a muchos/ una categoria puede tener muchos productos
+		@OneToMany(mappedBy ="categoria",fetch = FetchType.LAZY)
+		private List<Producto> productos;
 	
 	
-	
-	public Producto() {
+	public Categoria() {
 		super();
 	}
-
-
-	public Producto(String nombre, Integer valor, String descripcion) {
+	public Categoria(String nombre, String descripcion) {
 		super();
 		this.nombre = nombre;
-		this.valor = valor;
 		this.descripcion = descripcion;
 	}
-
 	
 	
-
 	@Override
 	public String toString() {
-		return "Producto [nombre=" + nombre + ", valor=" + valor + ", descripcion=" + descripcion + "]";
+		return "Categoria [nombre=" + nombre + ", descripcion=" + descripcion + "]";
 	}
-
-
+	
+	
 	public String getNombre() {
 		return nombre;
 	}
-
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
-
-	public Integer getValor() {
-		return valor;
-	}
-
-
-	public void setValor(Integer valor) {
-		this.valor = valor;
-	}
-
-
 	public String getDescripcion() {
 		return descripcion;
 	}
-
-
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-
-
+	public List<Producto> getProductos() {
+		return productos;
+	}
+	public void setProductos(List<Producto> productos) {
+		this.productos = productos;
+	}
 	public Long getId() {
 		return id;
 	}
-
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-
-	public Categoria getCategoria() {
-		return categoria;
-	}
-
-
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
-	
-	
 	
 	
 	
