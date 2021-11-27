@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nttdata.models.Producto;
+import com.nttdata.services.CategoriaService;
 import com.nttdata.services.ProductoService;
 
 
@@ -24,11 +25,14 @@ public class ProductoController {
 	
 	@Autowired
 	ProductoService productoService;
-
+	@Autowired
+	CategoriaService categoriaService;
+	
 	@RequestMapping("")
 	public String producto(@ModelAttribute("producto") Producto producto, 
 			Model model) {
 		
+		model.addAttribute("listaCategoria", categoriaService.obtenerListaCategoria());
 		model.addAttribute("listaProducto", productoService.obtenerListaProducto());
 		
 		return "usuario/producto.jsp";

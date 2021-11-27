@@ -18,6 +18,25 @@
 
 <body>
 	
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Menu</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Producto <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/venta">Venta</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/usuario">Usuario</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
 
 	<div class="container-fluid">
@@ -28,6 +47,7 @@
 			<form:label path="descripcion">Descripcion:</form:label>
 			<form:input type="text" path="descripcion"/>
 			<br>
+			
 			<input type="button" value="Limpiar">
 			<input type="submit" value="Submit">
 		</form:form>
@@ -44,20 +64,13 @@
 		    </tr>
 		  </thead>
 		  <tbody>
-		  	<c:forEach items="${listaCategoria}" var="producto">
+		  	<c:forEach items="${listaCategoria}" var="categoria">
 			    <tr>
-			      <th scope="row">${producto.getId()}</th>
-			      <td>${producto.getNombre()}</td>
-			      <td>${producto.getDescripcion()}</td>
+			      <th scope="row">${categoria.getId()}</th>
+			      <td>${categoria.getNombre()}</td>
+			      <td>${categoria.getDescripcion()}</td>
 			      <td>
-			      <a href="/producto/${producto.getId()}/editarP" class="btn btn-primary" role="button" data-bs-toggle="button">Editar</a>
-			
-			      </td>
-			      <td>
-				      <form action="/producto/eliminarP" method="get">
-				      	<input type="hidden" name="id" value="${producto.getId()}">
-				      	<input type="submit" value="X">
-				      </form>
+			      <a href="/producto/${categoria.getId()}/editarP" class="btn btn-primary" role="button" data-bs-toggle="button">Editar</a>
 			      </td>
 			    </tr>
 		    </c:forEach>
