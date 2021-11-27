@@ -34,7 +34,35 @@
 		<br>
 		
 		
-		
+		<table class="table">
+		  <thead>
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">Nombre</th>
+		      <th scope="col">Descripcion</th>
+		      <th scope="col">Acciones</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	<c:forEach items="${listaCategoria}" var="producto">
+			    <tr>
+			      <th scope="row">${producto.getId()}</th>
+			      <td>${producto.getNombre()}</td>
+			      <td>${producto.getDescripcion()}</td>
+			      <td>
+			      <a href="/producto/${producto.getId()}/editarP" class="btn btn-primary" role="button" data-bs-toggle="button">Editar</a>
+			
+			      </td>
+			      <td>
+				      <form action="/producto/eliminarP" method="get">
+				      	<input type="hidden" name="id" value="${producto.getId()}">
+				      	<input type="submit" value="X">
+				      </form>
+			      </td>
+			    </tr>
+		    </c:forEach>
+		  </tbody>
+		</table>	
 		
 		
 	</div>
