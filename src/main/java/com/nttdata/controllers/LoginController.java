@@ -1,6 +1,8 @@
 package com.nttdata.controllers;
 
-import javax.validation.Valid;
+import java.util.List;
+
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,9 +40,18 @@ public class LoginController {
 	*/
 	
 	@RequestMapping("/login")
-	public String login() {
+	public String login(@RequestParam("nombre")String nombre, @ModelAttribute("usuario") Usuario usuario,
+			Model model) {
+		List<Usuario> ListaUsuariosA=usuarioService.obtenerUsuarioWhereIdSQL(nombre);
+		
+		for (int i = 0; i < ListaUsuariosA.size(); i++) {
+			if(nombre.equals(ListaUsuariosA.get(i).getNombre())) {
+				return "redirect:/venta";
+			}
+		}
 		return "redirect:/usuario";
 	}
+	
 	
 	
 	@RequestMapping("/eliminar")

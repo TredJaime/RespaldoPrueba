@@ -7,7 +7,6 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 import com.nttdata.models.Venta;
 import com.nttdata.repositories.VentaRepositories;
 
@@ -50,4 +49,9 @@ public void updateVenta(@Valid Venta venta) {
 	}
 	
 }
+
+
+
 }
+
+

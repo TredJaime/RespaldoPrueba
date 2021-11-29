@@ -49,7 +49,10 @@ public class UsuarioService {
 	}
 
 
-	
+	public List<Usuario> obtenerUsuarioWhereIdSQL(String nombre){
+		return usuarioRepository.obtenerUsuarioWhereIdSQL(nombre);
+	}
+
 
 	
 }

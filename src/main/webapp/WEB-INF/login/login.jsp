@@ -13,38 +13,25 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     
-    <title>Usuario::</title>
+    <title>Login::</title>
     
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Menu</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="/producto">Producto</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/venta">Venta <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Usuario</a>
-      </li>
-    </ul>
-  </div>
-</nav>
 
+	
+	<h1>Bienvenido</h1>
+	<h2>Ingresar a tu cuenta</h2>
+	
 	<div class="container-fluid">
 		<form:form method="post" action="/login/login" modelAttribute="usuario">
-			<form:label path="nombre">Nombre:</form:label>
+			<form:label path="nombre">Usuario:</form:label>
 			<form:input type="text" path="nombre" value="${usuario.getNombre()}" />
 			<br>
-			<input type="button" value="Limpiar">
-			<input type="submit" value="Submit">
+			
+			<input type="submit" value="Ingresar">
+			<br>
+			<a href="/usuario">Crear Usuario</a>
 		</form:form>
 		<br>
 		
