@@ -46,7 +46,6 @@ public class UsuarioController {
 		Usuario usuario = usuarioService.BuscarUsarioId(id);
 		if(usuario !=null) {
 			usuarioService.eliminarUsuarioObjeto(usuario);
-		
 		}
 		return "redirect:/usuario";
 	}
