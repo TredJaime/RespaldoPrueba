@@ -42,10 +42,13 @@ public class LoginController {
 	@RequestMapping("/login")
 	public String login(@RequestParam("nombre")String nombre, @ModelAttribute("usuario") Usuario usuario,
 			Model model) {
+		System.out.println(nombre);
 		List<Usuario> ListaUsuariosA=usuarioService.obtenerUsuarioWhereIdSQL(nombre);
 		
 		for (int i = 0; i < ListaUsuariosA.size(); i++) {
 			if(nombre.equals(ListaUsuariosA.get(i).getNombre())) {
+				
+				
 				return "redirect:/tienda";
 			}
 		}
@@ -60,6 +63,7 @@ public class LoginController {
 		Usuario usuario = usuarioService.BuscarUsarioId(id);
 		if(usuario !=null) {
 			usuarioService.eliminarUsuarioObjeto(usuario);
+			
 		
 		}
 		return "redirect:/usuario";

@@ -52,8 +52,8 @@
 			<br>
 			<form:label path="categoria">Categoria:</form:label>
 			<form:select class="form-select" path="categoria">
-				<c:forEach var="proyecto" items="${listaCategoria}">
-					<form:option value="${proyecto.getId()}">${proyecto.getNombre()}</form:option>
+				<c:forEach var="categoria" items="${listaCategoria}">
+					<form:option value="${categoria.getId()}">${categoria.getNombre()}</form:option>
 				</c:forEach>
 			</form:select>
 			<br>

@@ -38,6 +38,11 @@ public class ProductoController {
 		return "usuario/producto.jsp";
 	}
 	
+	@RequestMapping("/buscarCate")
+	public String buscarCategoria() {
+		return "redirect:/tienda";
+	}
+	
 	@RequestMapping("/loginP")
 	public String loginP(@Valid @ModelAttribute("Producto") Producto producto) {
 		System.out.println(producto.getNombre() + " " + producto.getValor() + " " + producto.getDescripcion());

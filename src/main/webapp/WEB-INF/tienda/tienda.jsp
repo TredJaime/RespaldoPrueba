@@ -58,22 +58,33 @@
 			      <td>${producto.getDescripcion()}</td>
 			      <td>${producto.getCategoria().getNombre()}</td>
 				  <td>
-				  
 				        <form action="/usuario/eliminar" method="get">
 				      	<input type="number" name="cantidad">
 				      	<input type="submit" value="Agregar al carro">
 				      </form>
-	
-				  
 				  </td>
-				  
-				 
 			    </tr>
 		    </c:forEach>
 		  </tbody>
 		</table>	
 		
+		<h6>Buscar producto por categoria</h6>
+		<div class="container-fluid">
+		<form:form method="post" action="/producto/buscarCate" modelAttribute="producto">
+			<form:label path="nombre">Nombre:</form:label>
+			<form:input type="text" path="nombre" value="${producto.getCategoria().getNombre()}" />
+			
+			<input type="submit" value="Buscar">
+		</form:form>
+		<br>
+		
+		
+		
+		
+		
+		
+	</div>
+		
 
 </body>
-
 </html>
