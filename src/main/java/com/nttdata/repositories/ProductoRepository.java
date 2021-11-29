@@ -12,6 +12,6 @@ import com.nttdata.models.Producto;
 @Repository
 public interface ProductoRepository extends JpaRepository<Producto, Long> {
 	//SENTECIA JOIN UNO TABLA PRODUCTO Y CATEGORIA Y BUSCO POR NOMBRE 1?
-	@Query(value= "SELECT categorias.nombre, productos.categoria_id, valor FROM categorias INNER JOIN productos ON categorias.id=productos.categoria_id WHERE categorias.nombre = ?;", nativeQuery = true)
-	List<Producto> obtenerCategoriaSql(String nombre);
+	@Query(value = "SELECT * FROM categorias INNER JOIN productos ON categorias.id=productos.categoria_id WHERE categorias.nombre = ?;", nativeQuery = true)
+	List<Object[]> findAllPorCategorias(String nombre);
 }

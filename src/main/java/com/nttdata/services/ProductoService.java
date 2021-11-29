@@ -46,7 +46,7 @@ public void updateProducto(@Valid Producto producto) {
 	}	
 }
 
-public List<Producto> obtenerCategoriaSql(String nombre){
-	return productoRepository.obtenerCategoriaSql(nombre);
+public List<Object[]> findAllPorCategorias(String nombre){
+	return productoRepository.findAllPorCategorias(nombre);
 }
 }

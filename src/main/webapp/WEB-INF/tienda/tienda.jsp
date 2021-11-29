@@ -78,7 +78,32 @@
 		</form:form>
 		<br>
 		
-		
+		<table class="table">
+		  <thead>
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">Nombre</th>
+		      <th scope="col">Valor</th>
+		      <th scope="col">Descripcion</th>
+		       <th scope="col">Categoria</th>
+		      <th scope="col">Cantidad</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	<c:forEach items="${lis}" var="fila">
+			    <tr>
+			     <td>${fila[0].nombre}</td>
+			     <td>${fila[1].nombre}</td>
+				  <td>
+				        <form action="/usuario/eliminar" method="get">
+				      	<input type="number" name="cantidad">
+				      	<input type="submit" value="Agregar al carro">
+				      </form>
+				  </td>
+			    </tr>
+		    </c:forEach>
+		  </tbody>
+		</table>	
 		
 		
 		

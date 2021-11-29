@@ -1,5 +1,6 @@
 package com.nttdata.controllers;
 
+import java.util.Iterator;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -30,6 +31,8 @@ public class ProductoController {
 	ProductoService productoService;
 	@Autowired
 	CategoriaService categoriaService;
+	private Producto lisp;
+	private Categoria lisC;
 	
 	@RequestMapping("")
 	public String producto(@ModelAttribute("producto") Producto producto, 
@@ -47,14 +50,14 @@ public class ProductoController {
 	public String login(@RequestParam("nombre")String nombre, @ModelAttribute("producto") Producto producto,
 			Model model) {
 		System.out.println(nombre);
-		List<Producto> ListaPro=productoService.obtenerCategoriaSql(nombre);
-		System.out.println(nombre);
-		for (int i = 0; i < ListaPro.size(); i++) {
-			if(nombre.equals(ListaPro.get(i).getNombre())) {
-				
-				
-				return "redirect:/usuario";
-			}
+		List<Object[]> oUsuarios = productoService.findAllPorCategorias(nombre);
+		
+		for(Object[] fila: oUsuarios) {
+			
+			
+			System.out.println(fila);
+			lisp = (Producto) fila[0];
+			lisC = (Categoria) fila[1];
 		}
 		return "redirect:/tienda";
 	
