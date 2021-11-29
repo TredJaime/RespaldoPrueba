@@ -27,4 +27,6 @@ public class TiendaController {
 		
 		return "tienda/tienda.jsp";
 	}
+	
+	
 }

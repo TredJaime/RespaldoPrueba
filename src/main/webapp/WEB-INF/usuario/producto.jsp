@@ -26,17 +26,18 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Producto <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/producto">Producto <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/venta">Venta</a>
+      <li class="nav-item active">
+        <a class="nav-link" href="/categoria">Categoria <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/usuario">Usuario</a>
+       <li class="nav-item">
+        <a class="nav-link" href="/tienda">Tienda</a>
       </li>
     </ul>
   </div>
 </nav>
+		
 
 
 	<div class="container-fluid">

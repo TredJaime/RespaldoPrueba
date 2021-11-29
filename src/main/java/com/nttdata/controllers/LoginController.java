@@ -22,7 +22,7 @@ public class LoginController {
 	UsuarioService usuarioService;
 	
 	@RequestMapping("")
-	public String login(@ModelAttribute("usuario") Usuario usuario,
+	public String index(@ModelAttribute("usuario") Usuario usuario,
 			Model model) {
 		model.addAttribute("listaUsuarios", usuarioService.obtenerListaUsuarios());
 		return "login/login.jsp";

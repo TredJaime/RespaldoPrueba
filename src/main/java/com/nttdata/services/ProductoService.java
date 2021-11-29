@@ -43,7 +43,10 @@ public void eliminarProductoObjeto(Producto producto) {
 public void updateProducto(@Valid Producto producto) {
 	if(productoRepository.existsById(producto.getId())) {
 		productoRepository.save(producto);
-	}
-	
+	}	
+}
+
+public List<Producto> obtenerCategoriaSql(String nombre){
+	return productoRepository.obtenerCategoriaSql(nombre);
 }
 }

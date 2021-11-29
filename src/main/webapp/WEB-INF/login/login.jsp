@@ -36,40 +36,7 @@
 		<br>
 		
 		
-		<table class="table">
-		  <thead>
-		    <tr>
-		      <th scope="col">#</th>
-		      <th scope="col">Nombre</th>
-		      <th scope="col">Apellido</th>
-		      <th scope="col">Rut</th>
-		      <th scope="col">Email</th>
-		      <th scope="col">Acciones</th>
-		      
-		    </tr>
-		  </thead>
-		  <tbody>
-		  	<c:forEach items="${listaUsuarios}" var="usuario">
-			    <tr>
-			      <th scope="row">${usuario.getId()}</th>
-			      <td>${usuario.getNombre()}</td>
-			      <td>${usuario.getApellido()}</td>
-			      <td>${usuario.getRut()}</td>
-			      <td>${usuario.getEmail()}</td>
-			      <td>
-			      <a href="/login/${usuario.getId()}/editar" class="btn btn-primary" role="button" data-bs-toggle="button">Editar</a>
-			      
-			      </td>
-			      <td>
-				      <form action="/login/eliminar" method="get">
-				      	<input type="hidden" name="id" value="${usuario.getId()}">
-				      	<input type="submit" value="X">
-				      </form>
-			      </td>
-			    </tr>
-		    </c:forEach>
-		  </tbody>
-		</table>	
+		
 	</div>
 </body>
 

@@ -1,5 +1,7 @@
 package com.nttdata.controllers;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.nttdata.models.Categoria;
 import com.nttdata.models.Producto;
 import com.nttdata.services.CategoriaService;
 import com.nttdata.services.ProductoService;
@@ -38,10 +41,27 @@ public class ProductoController {
 		return "usuario/producto.jsp";
 	}
 	
+
+	
 	@RequestMapping("/buscarCate")
-	public String buscarCategoria() {
+	public String login(@RequestParam("nombre")String nombre, @ModelAttribute("producto") Producto producto,
+			Model model) {
+		System.out.println(nombre);
+		List<Producto> ListaPro=productoService.obtenerCategoriaSql(nombre);
+		System.out.println(nombre);
+		for (int i = 0; i < ListaPro.size(); i++) {
+			if(nombre.equals(ListaPro.get(i).getNombre())) {
+				
+				
+				return "redirect:/usuario";
+			}
+		}
 		return "redirect:/tienda";
+	
 	}
+	
+	
+	
 	
 	@RequestMapping("/loginP")
 	public String loginP(@Valid @ModelAttribute("Producto") Producto producto) {
