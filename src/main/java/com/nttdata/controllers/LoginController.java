@@ -46,10 +46,11 @@ public class LoginController {
 		
 		for (int i = 0; i < ListaUsuariosA.size(); i++) {
 			if(nombre.equals(ListaUsuariosA.get(i).getNombre())) {
-				return "redirect:/venta";
+				return "redirect:/tienda";
 			}
 		}
-		return "redirect:/usuario";
+		return "redirect:/login";
+	
 	}
 	
 	

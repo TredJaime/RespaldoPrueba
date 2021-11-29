@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     
-    <title>Producto::</title>
+    <title>Tienda::</title>
 </head>
 
 <body>
@@ -46,7 +46,7 @@
 		      <th scope="col">Valor</th>
 		      <th scope="col">Descripcion</th>
 		       <th scope="col">Categoria</th>
-		      <th scope="col">Acciones</th>
+		      <th scope="col">Cantidad</th>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -57,23 +57,23 @@
 			      <td>${producto.getValor()}</td>
 			      <td>${producto.getDescripcion()}</td>
 			      <td>${producto.getCategoria().getNombre()}</td>
-			      <td>
-			      <a href="/producto/${producto.getId()}/editarP" class="btn btn-primary" role="button" data-bs-toggle="button">Editar</a>
-			
-			      </td>
-			      <td>
-				      <form action="/producto/eliminarP" method="get">
-				      	<input type="hidden" name="id" value="${producto.getId()}">
-				      	<input type="submit" value="X">
+				  <td>
+				  
+				        <form action="/usuario/eliminar" method="get">
+				      	<input type="number" name="cantidad">
+				      	<input type="submit" value="Agregar al carro">
 				      </form>
-			      </td>
+	
+				  
+				  </td>
+				  
+				 
 			    </tr>
 		    </c:forEach>
 		  </tbody>
 		</table>	
 		
-		
-	</div>
+
 </body>
 
 </html>
