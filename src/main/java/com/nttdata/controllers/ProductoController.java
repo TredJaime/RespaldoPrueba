@@ -53,8 +53,8 @@ public class ProductoController {
 		List<Object[]> oUsuarios = productoService.findAllPorCategorias(nombre);
 		
 		for(Object[] fila: oUsuarios) {
-			
-			
+			if(nombre.equals(nombre))
+				System.out.println(producto.getNombre());
 			System.out.println(fila);
 			lisp = (Producto) fila[0];
 			lisC = (Categoria) fila[1];

@@ -25,14 +25,13 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="/producto">Producto</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/venta">Venta <span class="sr-only">(current)</span></a>
-      </li>
+      
+  
       <li class="nav-item">
         <a class="nav-link" href="#">Usuario</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="/login">login</a>
       </li>
     </ul>
   </div>
