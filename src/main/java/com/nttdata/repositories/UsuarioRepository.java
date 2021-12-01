@@ -10,6 +10,8 @@ import com.nttdata.models.Usuario;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
+	Usuario findByEmail(String email);
+	
 	List<Usuario> findAll();
 	
 	@Query(value= "SELECT * FROM usuarios Where nombre = ?1", nativeQuery = true)

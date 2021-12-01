@@ -37,17 +37,21 @@ public class UsuarioController {
 	}
 	
 	
-	
-	
-	
 	@RequestMapping("/login")
 	public String login(@Valid @ModelAttribute("usuario") Usuario usuario) {
 		System.out.println(usuario.getNombre()+ " " + usuario.getApellido() + " " + usuario.getRut() + " " + usuario.getEmail());
 	
-		usuarioService.insertarUsuario(usuario);
+		//usuarioService.registroUsuario(usuario);
 		
 		return "redirect:/usuario";
 	}
+	
+	@RequestMapping("/registrar")
+	public String registrar(@Valid @ModelAttribute("usuario") Usuario usuario)
+	{
+		return "redirect:/usuario";
+	}
+	
 	
 	
 	@RequestMapping("/eliminar")
